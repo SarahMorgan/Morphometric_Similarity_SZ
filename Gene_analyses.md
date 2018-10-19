@@ -2,7 +2,7 @@ This file provides code to perform the gene analyses, essentially Figure 3 of th
 
 ## Gene expression PLS:
 
-This code was written by Dr Petra Vértes and introduced in [Whitaker and Vértes, PNAS 2016](http://www.pnas.org/content/113/32/9105), please cite that paper if you this approach in your own work.
+This code was written by Dr Petra Vértes and is taken from [Whitaker and Vértes, PNAS 2016](http://www.pnas.org/content/113/32/9105), please cite that paper if you this code in your own work.
 
 ```
 load('gene_regional_expression_zscored.mat')
