@@ -7,9 +7,6 @@ Information about where the data is stored and how to import it.
 Regional values for cortical thickness (CT), grey matter volume (GM), surface area (SA), mean curvature (MC), Gaussian curvature (GC), fractional anisotropy (FA) and mean diffusivity (MD) are provided for each dataset and can be loaded in MATLAB using commands such as ```load('PARC500_CT.dat')```. For each dataset the files 'group.dat', 'age.dat' and 'sex.dat' provide information about the group which the subject belongs to (control subject=1, patient=2), their age and their sex (male=1, female=2).
 
 ```
-nregs=308; % number of regions
-nsubs=length(group); % number of subjects- 151 for Maastricht, 115 for Dublin and 146 for Cobre
-
 load('PARC500_GC.dat')
 load('PARC500_MC.dat')
 load('PARC500_MD.dat')
@@ -21,6 +18,9 @@ load('PARC500_FA.dat')
 load('group.dat')
 load('age.dat')
 load('sex.dat')
+
+nregs=308; % number of regions
+nsubs=length(group); % number of subjects- 151 for Maastricht, 115 for Dublin and 146 for Cobre
 ```
 
 ## Calculate the morphometric similarity matrices:
