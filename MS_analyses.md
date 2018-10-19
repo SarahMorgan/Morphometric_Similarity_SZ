@@ -22,6 +22,7 @@ load('sex.dat')
 nregs=308; % number of regions
 nsubs=length(group); % number of subjects- 151 for Maastricht, 115 for Dublin and 146 for Cobre
 ```
+If you are using these data for your own analyses, please note that there is one outlier subject in the Cobre MD and FA values (as discussed in the SI of the paper).
 
 ## Calculate the morphometric similarity matrices:
 
