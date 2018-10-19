@@ -123,10 +123,10 @@ dummy=meanMS_regional;
 
 clear mytstat mypval
 for region=1:nregs
-  tbl = table(age(mask_conpat),gender(mask_conpat),group,dummy(mask_conpat,region));
-  tbl.Var2 = categorical(tbl.Var2);
+  tbl = table(age,sex,group,dummy(:,region));
+  tbl.sex = categorical(tbl.sex);
   tbl.group = categorical(tbl.group);
-  lm = fitlm(tbl,'Var4~Var1*Var2+group');
+  lm = fitlm(tbl,'Var4~age*sex+group');
   mytstat(region)=lm.Coefficients{4,3};
   mypval(region)=lm.Coefficients{4,4};
 end
@@ -202,5 +202,29 @@ a=a/nregs
 b=b/nregs
 c=c/nregs
 d=d/nregs
+```
 
+## Regional differences in MS- lh only
+
+For the gene expression analyses, calculate the t-statistic for the lh only:
+
+```
+nregs_lh=nregs/2;
+for subj=1:nsubs
+    meanMS_regional_lh(subj,:)=sum(subj_MSN_7{1,subj}(1:nregs_lh,1:nregs_lh))./(nregs_lh-1);
+end
+
+dummy=meanMS_regional_lh;
+clear mytstat mypval
+for region=1:nregs_lh
+  tbl = table(age,sex,group,dummy(:,region));
+  tbl.sex = categorical(tbl.sex);
+  tbl.group = categorical(tbl.group);
+  lm = fitlm(tbl,'Var4~age*sex+group');
+  mytstat(region)=lm.Coefficients{4,3};
+  mypval(region)=lm.Coefficients{4,4};
+end
+
+dlmwrite('mytstat_Maast_lh.dat',mytstat)
+dlmwrite('mypval_Maast_lh.dat',mypval)
 ```
