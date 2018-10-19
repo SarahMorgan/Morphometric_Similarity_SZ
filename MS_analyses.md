@@ -209,7 +209,7 @@ d=d/nregs
 For the gene expression analyses, calculate the t-statistic for the lh only:
 
 ```
-nregs_lh=nregs/2;
+nregs_lh=152;
 for subj=1:nsubs
     meanMS_regional_lh(subj,:)=sum(subj_MSN_7{1,subj}(1:nregs_lh,1:nregs_lh))./(nregs_lh-1);
 end
