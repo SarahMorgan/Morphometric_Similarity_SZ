@@ -199,10 +199,10 @@ for ind=1:nregs
     end
 end
 
-a=a/nregs
-b=b/nregs
-c=c/nregs
-d=d/nregs
+a=a/nregs % percentage of scatter points in the top left quadrant
+b=b/nregs % percentage of scatter points in the top right quadrant
+c=c/nregs % percentage of scatter points in the bottom left quadrant
+d=d/nregs % percentage of scatter points in the bottom right quadrant
 ```
 
 ## Regional differences in MS- lh only
@@ -237,6 +237,8 @@ The code below assesses whether there are differences in MS within particular vo
 ```
 networks=Yeo500overlap; % or vonEcon500overlap
 
+% To calculate t-statistics and p-values (for the von Economo class and Yeo network Tables in the SI in the paper):
+
 clear myt myp
 for class=1:7
     myregions=find(networks==class);
@@ -252,7 +254,9 @@ for class=1:7
     myp(class)=lm.Coefficients{4,4};
 end
 
-class=4; % insert which class you're interested in here
+% To plot box plot for a specific network/class:
+
+class=4; % insert which network/class you're interested in here
 myregions=find(networks==class);
 for subj=1:nsubs
     classreg(subj)=sum(meanMS_regional(subj,myregions));
@@ -265,7 +269,6 @@ y=transpose(classreg);
 [b,bint,resid]=regress(y,X);
 YFIT = b(1) + b(2)*x1 + b(3)*x2 + b(4)*x1.*x2;
 myresid=y-YFIT;
-[r p]=ttest2(myresid(cons),myresid(pats));
 
 figure
 boxplot(myresid,group,'notch','on','labels',{'Controls','Patients'})
