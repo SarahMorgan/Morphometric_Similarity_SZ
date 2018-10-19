@@ -160,7 +160,7 @@ meanMS_regional_Maast_con=meanMS_regional(find(group==1),:);
 Then simply average them:
 
 ```
-meanMS_con=(meanMS_regional_Maast_con+meanMS_regional_Dublin_con+meanMS_regional_Cobre_con)./3;
+meanMS_con=mean(vertcat(meanMS_regional_Maast_con,meanMS_regional_Dublin_con,meanMS_regional_Cobre_con),1);
 ```
 
 Plot the correlation between the regional mean control MS and the mean t-statistic:
