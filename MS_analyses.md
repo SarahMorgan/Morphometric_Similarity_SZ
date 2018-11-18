@@ -232,7 +232,7 @@ dlmwrite('mypval_Maast_lh.dat',mypval)
 
 ## von Economo/Yeo networks:
 
-The code below assesses whether there are differences in MS within particular von Economo classes or Yeo networks. You will need to import the lists of which Yeo network/von Economo class each of the 308 cortical regions belongs to, which can be found in the files 'Yeo_500_overlap.txt' and 'vonEcon_500_overlap.txt'. The Yeo network mapping was performed by Dr Jakob Seidlitz as part of the paper [Váša et al, Cereb Cortex. 2018](https://doi.org/10.1093/cercor/bhx249). The von Economo class mapping was performed by [Konrad Wagstyl](https://github.com/kwagstyl) and [Dr Kirstie Whitaker](https://github.com/kirstiejane) as part of the paper [Whitaker and Vértes, PNAS 2016](https://doi.org/10.1073/pnas.1601745113).
+The code below assesses whether there are differences in MS within particular von Economo classes or Yeo networks. You will need to import the lists of which Yeo network/von Economo class each of the 308 cortical regions belongs to, which can be found in the files 'Yeo_500_overlap.txt' and 'vonEcon_500_overlap.txt'. The Yeo network mapping was performed by [Jakob Seidlitz](https://github.com/jms290) as part of the paper [Váša et al, Cereb Cortex. 2018](https://doi.org/10.1093/cercor/bhx249). The von Economo class mapping was performed by [Konrad Wagstyl](https://github.com/kwagstyl) and [Dr Kirstie Whitaker](https://github.com/kirstiejane) as part of the paper [Whitaker and Vértes, PNAS 2016](https://doi.org/10.1073/pnas.1601745113).
 
 ```
 networks=Yeo500overlap; % or vonEcon500overlap
