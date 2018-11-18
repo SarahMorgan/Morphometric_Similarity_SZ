@@ -177,46 +177,43 @@ fclose(fid2)
 
 ## Gene enrichments:
 
+This code calculates enrichments of the known gene lists (used for Gandal, DISEASES and GAD). The input gene list must be a list of entrez IDs.
+
 ```
-knowngenes=Jensen130; % List of known genes
+knowngenes=gad_entrez; % List of known genes (entrez IDs)
+names=pls1_entrez; %flip(PLS1);
 
-names=PLS1; %flip(PLS1); % For bottom of gene list, use flipped lists here
-weights=Z1; %flip(Z1);
+gene_pos=zeros(1,length(knowngenes));
 
-Gene_pos=zeros(1,length(knowngenes));
 for index=1:length(knowngenes)
-    clear result
-    for myind=1:length(weights)
-        result(myind)=strcmp(knowngenes(index),names(myind));
-    end
-    if (isnan(find(result==1))==0)
-        Gene_pos(index)=find(result==1);
+    result=find(names==knowngenes(index));
+    if (isempty(result)==0) %
+        gene_pos(index)=result;
+    else
+        gene_pos(index)=nan;
     end
 end
 
-Gene_pos_median=nanmedian(Gene_pos)
-
+gene_pos_median=nanmedian(gene_pos)
 
 % Check whether enriched:
+lengthnonan=size(find(isnan(PGC_pos)==0),2);
+bground=probeInformation_maxi.EntrezID;
+bground_red=intersect(bground,pls1_entrez);
 
-lengthnonan=size(find(isnan(Gene_pos)==0),2); % No. of genes which are in genes20647
-genes=names;
-geneweights=weights;
-
-randno=1000;
+randno=10000; % no. of randomisations to perform
 
 % Randomise:
-clear myRposmedian
+clear myRpos myRposmedian
 for rand=1:randno
-    randgenes=genes(randperm(length(weights), lengthnonan)); % pick lengthnonan genes from 'genes' list at random
+    randgenes=bground_red(randperm(length(bground_red), lengthnonan)); % pick lengthnonan genes from background list at random
     clear positionR
     for index=1:lengthnonan
-        positionR(index)=find(ismember(genes, randgenes(index)));
+        positionR(index)=find(names==randgenes(index));
     end
 myRposmedian(rand)=median(positionR);
 end
 
 myRposmedian_sort=sort(transpose(myRposmedian),'descend');
-
-p_pos_median=length(find(myRposmedian_sort<=Gene_pos_median))/randno
+p_pos_median=length(find(myRposmedian_sort<=gene_pos_median))/randno
 ```
