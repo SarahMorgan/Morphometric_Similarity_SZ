@@ -1,4 +1,4 @@
-This file provides code to perform the gene analyses, essentially Figure 3 of the paper and the gene enrichment calculations.
+This file provides code to perform the gene analyses and the gene enrichment calculations.
 
 ## Gene expression PLS:
 
