@@ -53,3 +53,8 @@ Step 3:
 ```
 magma --gene-results SUM_STATS.2.genes.raw --set-annot genesets.txt --settings gene-include=maxintensity_bground.txt --out GSA_OUT
 ```
+
+Gene property analysis: (where GeneProperties.txt is a tab-delimited file with two columns- the first has entrez ids and the second has absolute z-scores)
+```
+magma --gene-results SUM_STATS.2.genes.raw --gene-covar GeneProperties.txt --out gene_prop
+```
