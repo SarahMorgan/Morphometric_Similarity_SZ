@@ -197,7 +197,7 @@ end
 gene_pos_median=nanmedian(gene_pos)
 
 % Check whether enriched:
-lengthnonan=size(find(isnan(PGC_pos)==0),2);
+lengthnonan=size(find(isnan(gene_pos)==0),2);
 bground=probeInformation_maxi.EntrezID;
 bground_red=intersect(bground,pls1_entrez);
 
