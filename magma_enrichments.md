@@ -56,5 +56,5 @@ magma --gene-results SUM_STATS.2.genes.raw --set-annot genesets.txt --settings g
 
 Gene property analysis: (where GeneProperties.txt is a tab-delimited file with two columns- the first has entrez ids and the second has absolute z-scores)
 ```
-magma --gene-results SUM_STATS.2.genes.raw --gene-covar GeneProperties.txt --out gene_prop
+magma --gene-results SUM_STATS.2.genes.raw --gene-covar GeneProperties.txt --settings gene-include=Fornitoprobes.txt --out gene_prop
 ```
