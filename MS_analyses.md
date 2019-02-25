@@ -53,16 +53,16 @@ for subj=1:nsubs
     subj_MSN_7{1,subj}=corr(transpose(subj_features7{1,subj}));
     subj_MSN_7{1,subj}(logical(eye(size(subj_MSN_7{1,subj})))) = 0;
 end
+
+clear meanMS_regional
+for subj=1:nsubs
+    meanMS_regional(subj,:)=sum(subj_MSN_7{1,subj})./(nregs-1);
+end
 ```
 
 ## Global differences in morphometric similarity:
 
 ```
-clear meanMS_regional
-for subj=1:nsubs
-    meanMS_regional(subj,:)=sum(subj_MSN_7{1,subj})./(nregs-1);
-end
-
 x1=age;
 x2=sex;
 X = [ones(size(x1)) x1 x2 x1.*x2];
@@ -137,6 +137,9 @@ for region=1:nregs
   mypval(region)=lm.Coefficients{4,4};
 end
 
+mytstat=transpose(mytstat);
+mypval=transpose(mypval);
+
 dlmwrite('mytstat_Maast.dat',mytstat)
 dlmwrite('mypval_Maast.dat',mypval)
 ```
@@ -146,7 +149,7 @@ This code was run to calclulate t-statistics and p-values for all three datasets
 ```
 clear pcomb
 for region=1:nregs
-  pcomb(region)=pfast([mypval_Maast,mypval_Dublin,mypval_Cobre]);
+  pcomb(region)=pfast([mypval_Maast(region),mypval_Dublin(region),mypval_Cobre(region)]);
 end
 
 pvalue_fdr = mafdr(mypval,'BHFDR',1); % FDR corrected p-values
