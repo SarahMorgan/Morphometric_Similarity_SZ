@@ -29,17 +29,8 @@ xlabel('Number of PLS components','FontSize',14);
 ylabel('Percent Variance Explained in Y','FontSize',14);
 grid on
 
-% plot samples in PLS space (using top 2 components)
-%might want to colour dots by their score for learning style
 dim=2;
 [XL,YL,XS,YS,BETA,PCTVAR,MSE,stats]=plsregress(X,Y,dim); % no need to do this but it keeps outputs tidy
-
-%%%% 2D plot of subjects in PLS component space %%%% 
-figure
-plot(XS(:,1), XS(:,2),'ok','MarkerSize',8,'MarkerFaceColor','r');
-xlabel('PLS component 1','FontSize',14);
-ylabel('PLS component 2','FontSize',14);
-grid on
 
 %%% plot correlation of PLS component 1 with t-statistic (from Cobre as an example):
 figure
@@ -76,6 +67,9 @@ plot(1:dim, p,'ok','MarkerSize',8,'MarkerFaceColor','r');
 xlabel('Number of PLS components','FontSize',14);
 ylabel('p-value','FontSize',14);
 grid on
+
+dim=2;
+[XL,YL,XS,YS,BETA,PCTVAR,MSE,stats]=plsregress(X,Y,dim);
 ```
 
 Bootstrap to get the gene list:
@@ -180,8 +174,8 @@ fclose(fid2)
 This code calculates enrichments of the known gene lists (used for Gandal, DISEASES and GAD). The input gene list must be a list of entrez IDs.
 
 ```
-knowngenes=gad_entrez; % List of known genes (entrez IDs)
-names=pls1_entrez; %flip(PLS1);
+knowngenes=gandal_up_entrez; % List of known genes (entrez IDs)
+names=pls1_entrez; %flip(pls1_entrez);
 
 gene_pos=zeros(1,length(knowngenes));
 
@@ -198,7 +192,7 @@ gene_pos_median=nanmedian(gene_pos)
 
 % Check whether enriched:
 lengthnonan=size(find(isnan(gene_pos)==0),2);
-bground=probeInformation_maxi.EntrezID;
+bground=probeInfo_maxi_EntrezID;
 bground_red=intersect(bground,pls1_entrez);
 
 randno=10000; % no. of randomisations to perform
