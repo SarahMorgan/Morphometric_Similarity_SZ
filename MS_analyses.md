@@ -115,6 +115,8 @@ end
 
 figure
 boxplot(myresid_region_mean,group,'notch','on','Labels',{'Controls','Patients'})
+ylim([-3*10^(-3) 6*10^(-3)])
+ylabel('Mean residual')
 
 ```
 
