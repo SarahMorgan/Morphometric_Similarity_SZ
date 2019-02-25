@@ -92,6 +92,9 @@ h1.BinWidth = 0.01;
 h2.Normalization = 'probability';
 h2.BinWidth = 0.01;
 legend('Controls','Patients')
+xlim([-0.1 0.1])
+xlabel('MS- regional residuals')
+ylabel('Relative frequency')
 
 % Calculate mean MS:
 for subj=1:nsubs
