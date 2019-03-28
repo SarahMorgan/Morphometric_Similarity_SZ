@@ -1,4 +1,4 @@
-This file provides code to perform the main morphometric similarity analyses (essentially Figures 1 and 2 of the paper).
+This file provides code to perform the main morphometric similarity analyses.
 
 ## Importing the data:
 
