@@ -2,9 +2,7 @@ This file provides code to perform the main morphometric similarity analyses.
 
 ## Importing the data:
 
-Information about where the data is stored and how to import it.
-
-Regional values for cortical thickness (CT), grey matter volume (GM), surface area (SA), mean curvature (MC), Gaussian curvature (GC), fractional anisotropy (FA) and mean diffusivity (MD) are provided for each dataset and can be loaded in MATLAB using commands such as ```load('PARC500_CT.dat')```. For each dataset the files 'group.dat', 'age.dat' and 'sex.dat' provide information about the group which the subject belongs to (control subject=1, patient=2), their age and their sex (male=1, female=2).
+Regional values for cortical thickness (CT), grey matter volume (GM), surface area (SA), mean curvature (MC), Gaussian curvature (GC), fractional anisotropy (FA) and mean diffusivity (MD) are provided for each dataset (at the FigShare link- see [README.md](https://github.com/SarahMorgan/Morphometric_Similarity_SZ/blob/master/README.md)) and can be loaded in MATLAB using commands such as ```load('PARC500_CT.dat')```. For each dataset the files 'group.dat', 'age.dat' and 'sex.dat' provide information about the group which the subject belongs to (control subject=1, patient=2), their age and their sex (male=1, female=2).
 
 ```
 load('PARC500_GC.dat')
