@@ -1,4 +1,4 @@
-# Morphometric_Similarity_SZ
+# Morphometric_Similarity_Psychosis
 
 This repository contains code to analyse morphometric similarity matrices from patients with schizophrenia and healthy control subjects, as reported by [Morgan et al, 2018](https://www.biorxiv.org/content/10.1101/501494v2). Please cite that paper if you find this code helpful in your own analyses. The PLS code to relate gene expression to the neuroimaging signal was written by Dr Petra Vértes and introduced in [Whitaker and Vértes et al, PNAS 2016](http://www.pnas.org/content/113/32/9105) and [Vértes et al, Philosophical Transactions of the Royal Society B](https://royalsocietypublishing.org/doi/full/10.1098/rstb.2015.0362), please cite those papers if you this approach in your own work.
 
